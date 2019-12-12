@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'appone/css/style.css' %}" type="text/css" media="screen">
+	<title></title>
+</head>
+<body>
+<header>
+
+    ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+</header>
+<section>
+        <div class="container-fluid">
+
+            <div class="col-md-6">
+                <img src="/appone/img1.jpg">
+            </div>
+                <video poster="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/polina.jpg" id="bgvid" playsinline autoplay muted loop>
+                <source src="https://www.youtube.com/watch?v=oJ4Pi-2qrZg" type="video/mp4">
+                </video>
+            <div class="col-md-6">
+                <ul>
+                    {% for picture in pictures %}
+                        {% with 'appone/'|add:picture.filename as filepath %}
+                            <div>
+                                <img src="{% static filepath %}"/>
+                            </div>
+                        {% endwith %}
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
